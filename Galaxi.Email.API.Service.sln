@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaxi.Email.API.Service", "Galaxi.Email.API.Service\Galaxi.Email.API.Service.csproj", "{60183DEB-20CB-4FE8-BDC2-DB4407DF9887}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaxi.Bus.Message", "Galaxi.Bus.Message\Galaxi.Bus.Message.csproj", "{DA4C3963-4C9B-485E-9D69-274ABF0415D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60183DEB-20CB-4FE8-BDC2-DB4407DF9887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60183DEB-20CB-4FE8-BDC2-DB4407DF9887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60183DEB-20CB-4FE8-BDC2-DB4407DF9887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60183DEB-20CB-4FE8-BDC2-DB4407DF9887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA4C3963-4C9B-485E-9D69-274ABF0415D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4C3963-4C9B-485E-9D69-274ABF0415D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4C3963-4C9B-485E-9D69-274ABF0415D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4C3963-4C9B-485E-9D69-274ABF0415D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED140069-C3C4-4178-93A0-FA55D0FAF17F}
+	EndGlobalSection
+EndGlobal

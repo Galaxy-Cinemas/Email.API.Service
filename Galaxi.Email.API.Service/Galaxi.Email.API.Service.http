@@ -1,0 +1,6 @@
+@Galaxi.Email.API.Service_HostAddress = http://localhost:5212
+
+GET {{Galaxi.Email.API.Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
