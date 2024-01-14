@@ -3,6 +3,7 @@ using MimeKit.Text;
 using MimeKit;
 using MailKit.Net.Smtp;
 using Galaxi.Email.API.Service.Models;
+using Galaxi.Bus.Message;
 
 namespace Galaxi.Email.API.Service.Service
 {
@@ -14,15 +15,17 @@ namespace Galaxi.Email.API.Service.Service
             _config = config;
         }
 
-        public void SendEmail(EmailDTO request)
+        public void SendEmail()
         {
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse(_config.GetSection("Email:UserName").Value));
             email.To.Add(MailboxAddress.Parse("juan.vega@pevaar.com"));
-            email.Subject = "Test Send Email";
+            email.To.Add(MailboxAddress.Parse("juanguativa07@gmail.com"));
+            email.To.Add(MailboxAddress.Parse("saraguativa@gmail.com"));
+            email.Subject = "CORREO PARA SARA VEGA";
             email.Body = new TextPart(TextFormat.Html)
             {
-                Text = request.Body
+                Text = "Sara vega "
             };
 
             using var smtp = new SmtpClient();

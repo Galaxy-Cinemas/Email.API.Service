@@ -16,7 +16,7 @@ namespace Galaxi.Email.API.Service.Controllers
         [HttpPost]
         public IActionResult SendEmail(EmailDTO request)
         {
-            _emailService.SendEmail(request);
+            _emailService.SendEmail();
             return Ok();
         }
     }
