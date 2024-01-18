@@ -7,13 +7,10 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Galaxi.Bus.Message
 {
-    public class TickedCreated
+    public record TickedCreated
     {
-        public TickedCreated(int functionId)
-        {
-            FunctionId = functionId;
-        }
-
-        public int FunctionId { get; }
+        public int FunctionId { get; init; }
+        public int NumSeat { get; init; }
+        public string Email { get; init; }
     }
 }
