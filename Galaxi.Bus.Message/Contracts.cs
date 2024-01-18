@@ -13,4 +13,11 @@ namespace Galaxi.Bus.Message
         public int NumSeat { get; init; }
         public string Email { get; init; }
     }
+
+    public record MovieDetails
+    {
+        public int FunctionId { get; init; }
+        public int NumSeat { get; init; }
+        public string Email { get; init; }
+    }
 }

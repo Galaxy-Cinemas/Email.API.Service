@@ -1,3 +1,4 @@
+using Galaxi.Bus.Message;
 using Galaxi.Email.API.Service.IntegrationEvents.Consumers;
 using Galaxi.Email.API.Service.Service;
 using MassTransit;
@@ -11,6 +12,7 @@ var configuration = service.GetService<IConfiguration>();
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<SendEmailConsumer>();
+    x.AddRequestClient<MovieDetails>();
 
     x.UsingAzureServiceBus((context, cfg) =>
     {

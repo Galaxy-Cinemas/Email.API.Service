@@ -5,6 +5,6 @@ namespace Galaxi.Email.API.Service.Service
 {
     public interface IEmailService
     {
-        void SendEmail();
+        void SendEmail(TickedCreated Ticket);
     }
 }
