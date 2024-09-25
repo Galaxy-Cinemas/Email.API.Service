@@ -26,6 +26,7 @@ namespace Galaxi.Email.API.Service.IntegrationEvents.Consumers
             var ticket = new TickedCreated {
              FunctionId = context.Message.FunctionId,
              Email = context.Message.Email,
+             UserName = context.Message.UserName,
              NumSeat = context.Message.NumSeat,
             };
 
