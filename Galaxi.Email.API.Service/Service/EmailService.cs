@@ -1,9 +1,7 @@
-﻿using MailKit.Security;
-using MimeKit.Text;
+﻿using MimeKit.Text;
 using MimeKit;
-using MailKit.Net.Smtp;
-using Galaxi.Email.API.Service.Models;
 using Galaxi.Bus.Message;
+using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 using System;
 
 namespace Galaxi.Email.API.Service.Service
@@ -18,26 +16,50 @@ namespace Galaxi.Email.API.Service.Service
 
         public void SendEmail(TickedCreated ticked)
         {
-            var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse(_config.GetSection("Email:UserName").Value));
-            email.To.Add(MailboxAddress.Parse("juan.vega@pevaar.com"));
-            email.To.Add(MailboxAddress.Parse("juanguativa07@gmail.com"));
-            email.Subject = "Ticket Purchased - GalaXinema";
-            email.Body = new TextPart(TextFormat.Html)
+            try
             {
-                Text = "Se creo el ticke para la funcion" + ticked.FunctionId
-            };
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse(_config.GetSection("Email:UserName").Value));
 
-            using var smtp = new SmtpClient();
-            smtp.Connect(
-                _config.GetSection("Email:Host").Value,
-               Convert.ToInt32(_config.GetSection("Email:Port").Value)
-                );
+                email.To.Add(MailboxAddress.Parse(ticked.Email));
+                email.Subject = "Ticket Purchased - GalaXinema";
+                email.Body = new TextPart(TextFormat.Html)
+                {
 
-            smtp.Authenticate(_config.GetSection("Email:UserName").Value, _config.GetSection("Email:PassWord").Value);
+                    Text = $@"
+                            <html>
+                                <body>
+                                  <p>Dear {ticked.UserName},</p>
+                                  <p>Your ticket has been successfully confirmed for the cinema. Please present this confirmation upon arrival at the venue for admission. 
+                                     We are excited to welcome you and ensure a smooth entry process.</p>
+                                  <p>Thank you for choosing us, and we look forward to providing you with an enjoyable cinematic experience.</p>
 
-            smtp.Send(email);
-            smtp.Disconnect(true);
+                                  <p>Sincerely,</p>
+                                  <p>Galaxinema</p>
+                                </body>
+                            </html>
+                            "
+                };
+
+                using var smtp = new SmtpClient();
+
+                smtp.Connect(
+                    _config.GetSection("Email:Host").Value,
+                   Convert.ToInt32(_config.GetSection("Email:Port").Value)
+                    );
+
+                smtp.Authenticate(_config.GetSection("Email:UserName").Value, _config.GetSection("Email:PassWord").Value);
+
+                smtp.Send(email);
+                smtp.Disconnect(true);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
         }
     }
 }
