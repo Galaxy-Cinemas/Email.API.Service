@@ -1,9 +1,6 @@
 ﻿using Galaxi.Bus.Message;
 using Galaxi.Email.API.Service.Service;
 using MassTransit;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Net.NetworkInformation;
-using System.Threading;
 
 namespace Galaxi.Email.API.Service.IntegrationEvents.Consumers
 {

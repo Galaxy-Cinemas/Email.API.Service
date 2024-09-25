@@ -2,7 +2,6 @@
 using MimeKit;
 using Galaxi.Bus.Message;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
-using System;
 
 namespace Galaxi.Email.API.Service.Service
 {
